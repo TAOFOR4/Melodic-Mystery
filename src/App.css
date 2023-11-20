@@ -1,0 +1,1391 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.highScoreTable {
+  display: inline;
+  margin-top: 5vh;
+  width: 40vw;
+  height: 80vh;
+  background: linear-gradient(
+    156.66deg,
+    #683d88 0%,
+    rgba(94, 119, 251, 0.5) 99.16%
+  );
+  border-radius: 20px;
+}
+
+* {
+  font-family: "Ubuntu", arial, serif;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.button {
+  height: 5vw;
+  width: 20vw;
+  border-radius: 40px;
+  font-weight: 700;
+  font-family: "Ubuntu", arial, serif;
+  font-size: 1.75vw;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  transition: font-size 500ms;
+}
+button:hover {
+  font-size: 2vw;
+  transition: font-size 500ms;
+}
+.button.gradientBlue {
+  background: linear-gradient(90deg, #693d85 0%, #5362ec 53.82%, #88c3ff 100%);
+}
+.button.gradientRed {
+  background: linear-gradient(90deg, #cd5050 0%, #b179b1 53.82%, #baa5e1 100%);
+}
+
+/* CSS for NavBar*/
+.primary-header {
+  position: fixed;
+  top: 0;
+  left: 5vw;
+  right: 5vw;
+  transition: background-color 0.5s;
+  overflow: hidden;
+}
+
+.navbar {
+  padding-top: 3vh;
+  width: 60vw;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #494949;
+  transition: height 0.25s;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 6rem;
+  margin-left: 0px;
+  margin-right: auto;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: center;
+  color: #494949;
+  transition: font-size 500ms;
+}
+
+.nav-link:hover {
+  font-size: 30px;
+  transition: font-size 500ms;
+}
+
+.nav-link.selected{
+  text-shadow: 2px 4px 4px rgba(46,91,173,0.6);
+}
+
+/*CSS for homepageView.js*/
+.flex-row-homepage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.flex-column-homepage {
+  margin-top: 10vh;
+  height: 100vh;
+  justify-content: center;
+  margin-left: 5vw;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.graphic-background {
+  width: 100%;
+  background-image: url(../public/graphic_background.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center;
+}
+
+.App-name {
+  width: 100%;
+  display: flex;
+  align-items: end;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5vw;
+  
+
+  background: linear-gradient(
+    90.12deg,
+    #683b84 0.11%,
+    #5c79fd 51.22%,
+    #8e58d6 99.91%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.description-font-30px {
+  padding-top: 8vh;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2vw;
+  
+
+  color: #494949;
+}
+
+@media only screen and (max-width: 576px) {
+  .flex-row-homepage {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .App-name {
+
+    font-size: 10vw;
+  }
+
+ 
+
+  .button.playAsGuest {
+    width: 60vw;
+    height: 10vw;
+    font-size: 5vw;
+  }
+}
+.flex-row-buttons {
+  display: flex;
+  align-items: top;
+}
+
+
+
+/*CSS for gamesView.js*/
+.gameContainer{
+  /* For displaying the game cards and resultsboard alongside each other */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Left half of screen */
+.leftSide{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  place-self: center;
+}
+
+.cardGrid{
+  height: 75vh;
+  align-items: bottom;
+  align-content: center;
+  place-self: center;
+
+  /* Formatting for internal grid (i.e., the four cards) */
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5vh 5vh; 
+}
+.square {
+  /* Game card formatting - used for genresView.js as well */
+  display: inline-block;
+  align-items: center;
+  width: 15vw;
+  height: 25vh;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 4vh;  
+  border: 0;
+  cursor: pointer;
+  color: white;
+}
+
+.backButton{
+  align-items: top;
+  height: 25vh;
+  display: flex;
+  place-self: center;
+
+}
+.button.black {
+  background: #111111;}
+
+/* Right half of screen */
+.rightSide{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr;
+  place-self: center;
+}
+
+.resultsBoardGameView {
+  /* Formatting of results board-area */
+  width: 42.5vw;
+  height: 75vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  background: linear-gradient(
+    156.66deg,
+    #683d88 0%,
+    rgba(94, 119, 251, 0.5) 99.16%
+  );
+  border-radius: 20px;
+  display: flex;
+  place-self: center;
+}
+
+.background {
+  position: absolute;
+  width: 15vw;
+  height: 25vh;
+}
+
+.gamecontent {
+  font-size: 2.5vh;
+  font-style: normal;
+  font-weight: 300;
+  pointer-events: none;
+}
+
+.gameverbcontent {
+  pointer-events: none;
+  font-weight: 400;
+  font-size: 2.1vh;
+}
+
+.gameimg {
+  pointer-events: none;
+  width: 5vw;
+  height: 5vw;
+}
+
+.gameName{
+  pointer-events: none;
+  font-weight: 700;
+  font-size: 2.5vw;
+}
+
+/*CSS for genresView.js*/
+.genreComponent {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 100vh;
+}
+
+.select_genre_title {
+  width: 100vw;
+  height: 20vh;
+  padding-left: 10vh; 
+  display: flex;
+  align-items: end;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5vw;
+  line-height: 115px;
+  pointer-events: none;
+  color: white;
+}
+
+.select_genre_description {
+  width: 100vw;
+  height: 10vh;
+  padding-left: 10vh; 
+  display: flex;
+  align-items: stretch;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #494949;
+}
+
+.genreCards{
+  height: 40vh;
+  align-content: center;
+  place-self: center;
+  padding-right: 10vh; 
+  align-items: center;
+
+  /* Formatting for internal grid (i.e., the four cards) */
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 5vh 5vh; 
+}
+
+.genreBackButton{
+  height: 30vh;
+  display: flex;
+  place-self: center;
+  padding-right: 10vh; 
+}
+
+@media only screen and (max-width: 576px) {
+  
+}
+
+/*CSS for gamescreenView.js*/
+.gamescreenViewContainer{
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  height: 100vh;
+}
+
+.gamescreenViewRoundcounter{
+  display: flex;
+  justify-content: right;
+  height: 10vh;
+}
+
+.gamescreenViewPlaybar{
+  align-content: center;
+  place-self: center;
+  display: flex;
+  height: 30vh;
+}
+
+.gamescreenViewCards{
+    /* Formatting of gamescreen cards-area */
+    align-items: center;
+    align-content: center;
+    place-self: center;
+  
+    /* Formatting for internal grid (i.e., the four cards) */
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5vh 5vh; 
+    height: 50vh;
+}
+
+.gamescreenButtons{
+  display: grid;
+  place-self: center;
+  grid-template-columns: auto auto;
+  grid-gap: 30vh 30vh; 
+  height: 10vh;
+}
+
+.flex-row-round {
+  margin-top: 5vh;
+  margin-right: 5vw;
+  margin-left: auto;
+  cursor: auto;
+}
+
+.playButton {
+  cursor: pointer;
+  height: 10vw;
+}
+
+.playButtonContainer {
+  height: 30vh;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2vh; 
+}
+
+.playButtonLeftAligned{
+  height: 30vh;
+  display: grid;
+  grid-template-rows: auto auto;
+  height: 15vh;
+}
+.secondsText {
+  height: 10vh;
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5vw;
+  text-align: center;
+
+  color: #494949;
+}
+.playAndPause{
+  height: 20vh;
+}
+
+.playButtonRightAligned{
+  height: 30vh;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.dummy_one{
+  height: 10vh;
+}
+.dummy_two{
+  height: 20vh;
+}
+
+@media only screen and (max-width: 576px) {
+  .playButtonRightAligned{
+    height: 30vh;
+    grid-template-rows: auto auto;
+    display:none;
+  }
+
+  .playButton {
+    cursor: pointer;
+    height: 20vh;
+  }
+
+  .flex-row-round {
+    margin-top: 5vh;
+    margin-right: 5vw;
+    margin-left: auto;
+    width: 20vw;
+  }
+
+  .secondsText {
+    height: 10vh;
+    font-family: "Ubuntu", arial, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3vw;
+    text-align: center;
+  
+    color: #494949;
+  }
+
+}
+
+.rectangle {
+  width: 30vw;
+  height: 8vw;
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5vw;
+  border: 0;
+  cursor: pointer;
+  color: white;
+
+  background: linear-gradient(
+    94.17deg,
+    #cd5050 0%,
+    rgba(83, 37, 213, 0.3) 100%
+  );
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+/* .rectangle.card_one {
+  left: 192px;
+  top: 350px;
+}
+.rectangle.card_two {
+  left: 835px;
+  top: 350px;
+}
+.rectangle.card_three {
+  left: 192px;
+  top: 533px;
+}
+.rectangle.card_four {
+  left: 835px;
+  top: 533px;
+} */
+.rectangle.card_one.selected {
+  border: #111111 2px solid;
+}
+.rectangle.card_two.selected {
+  border: #111111 2px solid;
+}
+.rectangle.card_three.selected {
+  border: #111111 2px solid;
+}
+.rectangle.card_four.selected {
+  border: #111111 2px solid;
+}
+
+.roundText {
+  box-sizing: border-box;
+
+  height: 5vw;
+  width: 20vw;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-style: solid;
+  border-radius: 40px;
+
+  background: linear-gradient(white, white) padding-box,
+  linear-gradient(90deg, #cd5050 0%, #b179b1 53.82%, #baa5e1 100%) border-box;
+  border-radius: 50em;
+  border: 4px solid transparent;
+
+  font-family: "Ubuntu", arial, serif;
+  color: #494949;
+  font-size: 1.5vw;
+  font-weight: 900;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.roundText.regular {
+  background: linear-gradient(white, white) padding-box,
+  linear-gradient(90deg, #cd5050 0%, #b179b1 53.82%, #baa5e1 100%) border-box;
+}
+
+.button.quit {
+  background: #111111;
+  border-radius: 40px;
+}
+
+.button.next {
+}
+
+.button.nextDisabled {
+}
+
+/*CSS for filllyricsView.js*/
+.filllyricsContent{
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  height: 100vh;
+}
+
+.filllyricsViewRoundcounter{
+  display: flex;
+  justify-content: right;
+  height: 10vh;
+}
+
+.flex-column-lyrics {
+  display: flex;
+  height: 50vh;
+  align-items: center;
+  justify-content: center;
+  font-family: "Ubuntu", arial, serif;
+  color: #494949;
+  font-size: 1.5vw;
+  font-weight: 900;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.lyricsInput {
+  align-content: center;
+  place-self: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  height: 20vh;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.lyricsText{
+  font-size: 2vw;
+}
+
+.lyricsButtons {
+  display: grid;
+  place-self: center;
+  grid-template-columns: auto auto;
+  grid-gap: 30vh 30vh; 
+  height: 10vh;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.input_lyrics {
+  background: #D9D9D9;
+  border-radius: 20px;
+  border: none;
+  vertical-align: middle;
+
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  text-align: center;
+  font-size: 2vw;
+  height: 7.5vh;
+  width: 60vw;
+}
+
+.square_lyrics {
+  display: flex;
+  height: 50%;
+  width: 60vw;
+  background: linear-gradient(94.17deg, rgba(98, 249, 213, 0.41) 0%, #5A4EE6 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.flex-row-round.lyrics {
+  margin-top: 5vh;
+  margin-right: 5vw;
+  margin-left: auto;
+}
+
+.button.nextLyrics {
+  background: linear-gradient(90deg, rgba(98, 249, 213, 0.41) 0%, #5A4EE6 100%);
+  border-radius: 40px;
+}
+
+/*CSS for loadingscreenView.js*/
+.loadingbarContainer{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+  height: 70vh;
+  width: 100vw;
+  align-items: center;
+}
+
+.loadingBar {
+  width: 60vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingbarDescription{
+  align-items: center;
+  align-content: center;
+  place-self: center;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2vw;
+  line-height: 34px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #494949;
+}
+
+
+.result_header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 28vw;
+  border-bottom: 1px solid #ffffff;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.resultText {
+  display: flex;
+  color: #494949;
+  font-size: 20px;
+  font-weight: 900;
+}
+.colorDiv {
+  width: 20vw;
+  height: 10vh;
+  font-weight: 700;
+  font-size: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #673f8c 0%, #5d78fc 51.74%, #8a5ad8 100%);
+  border-radius: 10px;
+  color: white;
+}
+
+.userList { 
+  background:"#FFFFFF2E";
+  border-radius: 20px;
+}
+
+
+.button.gradientRed {
+  background: linear-gradient(90deg, #cd5050 0%, #b179b1 53.82%, #baa5e1 100%);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* CSS for About Us */
+.flex-column-aboutus {
+  margin-top: 20vh;
+  height: 100vh;
+  justify-content: center;
+  margin-left: 5vw;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.description-font-20px {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5vw;
+  line-height: 34px;
+
+  color: #494949;
+}
+
+.meet-the-team{
+  width: fit-content;
+  height: fit-content;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 34px;
+
+  color: #494949;
+}
+
+.flex-column-profile {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: center;
+}
+
+.flex-row-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5vh;
+}
+
+.more-about-member {
+  width: 40vw;
+  margin-left: 30px;
+}
+
+.profile-image {
+  margin-bottom: 2vh;
+  border-radius: 50%;
+  size: 80%;
+  
+}
+
+.profile-name {
+  width: fit-content;
+  height: fit-content;
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: bold;
+  font-weight: 200;
+  font-size: 1.2vw;
+  line-height: 5px;
+
+  color: #ffff;
+}
+
+.profile-email {
+  width: fit-content;
+  height: fit-content;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: bold;
+  font-weight: 200;
+  font-size: 1vw;
+  line-height: 15px;
+
+  color: #ffff;
+}
+
+.profile-bold {
+  width: fit-content;
+  height: fit-content;
+  display: inline;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: bold;
+  font-weight: 600;
+  font-size: 1vw;
+  line-height: 34px;
+
+  color: #ffff;
+}
+
+.square-profile {
+  width: 43vw;
+  height: 45vh;
+
+  background: linear-gradient(156.66deg, #683D88 0%, rgba(94, 119, 251, 0.5) 99.16%);
+  border-radius: 20px;
+  padding: 2vw;
+}
+
+.description-font-20px-profile{
+  width: 40vw;
+  height: fit-content;
+  display: inline;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: light;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 34px;
+  margin-block-start: 0;
+  color: #ffff;
+}
+
+.LO-list{
+    height: fit-content;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: light;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 25px;
+  margin-block-start: 0;
+  color: #ffff;
+}
+
+/* CSS for pop-up box */
+.pop-up {
+  box-shadow: 0.5vh 0.5vh 0.5vh 0.5vh rgba(0,0,0,.8);
+  background-color: white;
+  border-radius: 40px;
+  width: 40vw;
+  padding: 24px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style for the pop-up title */
+.pop-up-title {
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5vw;
+  line-height: 46px;
+  text-align: center;
+
+  color: #494949;
+  margin-bottom: 16px;
+}
+
+.popupGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Style for the pop-up options */
+.pop-up-option {
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 40px;
+  color: #333;
+  cursor: pointer;
+  font-size: 2vw;
+  padding: 1vw 1vw;
+  margin: 2vw 2vw;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Style for the pop-up option content */
+.pop-up-option-content {
+  margin: 0;
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2vw;
+  text-align: center;
+
+  color: #494949;
+}
+
+.pop-up-option:hover{
+  background-color: black;
+  border: none;
+  border-radius: 40px;
+  color: white;
+  cursor: pointer;
+  font-size: 2vw;
+  padding: 1vw 1vw;
+  margin: 2vw 2vw;
+  transition: all 0.3s ease-in-out;
+}
+.pop-up-option-content:hover {
+  margin: 0;
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2vw;
+  text-align: center;
+
+  color: white;
+}
+
+*.Year{
+  background: linear-gradient(126.88deg, rgba(83, 37, 213, 0.3) 0%, #38CFF0 100%);
+}
+*.Year:hover{
+  background: linear-gradient(126.88deg, rgba(50, 20, 135, 0.3) 0%, #248EA6 100%);
+}
+*.Title{
+  background: linear-gradient(126.88deg, #CD5050 0%, rgba(83, 37, 213, 0.3) 100%);
+}
+
+*.Title:hover{
+  background: linear-gradient(126.88deg, #6B2929 0%, rgba(55, 23, 146, 0.3) 100%);
+}
+*.Artist{
+  background: linear-gradient(126.88deg, #64BCCF 0%, #A4E8BB 100%);
+}
+
+*.Artist:hover{
+  background: linear-gradient(126.88deg, #498997 0%, #6F9B7E 100%);
+}
+*.Lyrics{
+  background: linear-gradient(126.49deg, rgba(98, 249, 213, 0.41) 0%, #5A4EE6 96.47%);
+}
+
+*.Lyrics:hover{
+  background: linear-gradient(126.49deg, rgba(70, 157, 136, 0.41) 0%, #393289 96.47%);
+}
+*.borderYear{
+  background: linear-gradient(white, white) padding-box,
+  linear-gradient(126.88deg, rgba(83, 37, 213, 0.3) 0%, #38CFF0 100%) border-box;
+}
+*.borderArtist{
+  background: linear-gradient(white, white) padding-box,
+  linear-gradient(126.88deg, #64BCCF 0%, #A4E8BB 100%) border-box;
+}
+*.borderLyrics{
+  background: linear-gradient(white, white) padding-box,
+  linear-gradient(126.49deg, rgba(98, 249, 213, 0.41) 0%, #5A4EE6 96.47%) border-box;
+}
+*.borderTitle{
+  background: linear-gradient(white, white) padding-box,
+  linear-gradient(90deg, #cd5050 0%, #b179b1 53.82%, #baa5e1 100%) border-box;
+}
+
+.roundText.lyrics {
+  background: linear-gradient(white, white) padding-box,
+  linear-gradient(94.41deg, rgba(98, 249, 213, 0.41) 1.86%, #5A4EE6 101.86%) border-box;
+
+  /*background: linear-gradient(94.41deg, rgba(98, 249, 213, 0.41) 1.86%, #5A4EE6 101.86%);*/
+
+}
+
+/*CSS for save pop-up*/
+.saveresult {
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,.8);
+  background-color: white;
+  border-radius: 40px;
+  width: 40vw;
+  height: 40vh;
+  padding: 24px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.save-title {
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5vw;
+  line-height: 46px;
+  text-align: center;
+
+  color: #494949;
+  margin-bottom: 16px;
+}
+
+.usernameinput {
+  width: 30vw;
+  height: 6vh;
+
+  font-size: 1.5vw;
+
+  background: #D9D9D9;
+  border: 2px solid #494949;
+  border-radius: 20px;
+}
+
+.cancel {
+  position: absolute;
+  width: 200px;
+  height: 75px;
+  left: 72px;
+  top: 251px;
+
+  background: #D9D9D9;
+  border-radius: 40px;
+}
+
+.cancelcontent {
+  position: absolute;
+  left: 11.48%;
+  right: 21.85%;
+  top: -12.67%;
+  bottom: 32%;
+
+  
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 34px;
+  text-align: center;
+
+  color: #494949;
+}
+
+.submit {
+  position: absolute;
+  width: 200px;
+  height: 75px;
+  left: 358px;
+  top: 251px;
+
+  background: #D9D9D9;
+  border-radius: 40px;
+}
+
+.submitcontent {
+  position: absolute;
+  left: 11.48%;
+  right: 21.85%;
+  top: -12.67%;
+  bottom: 32%;
+
+  
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 34px;
+  text-align: center;
+
+  color: #494949;
+}
+
+.avoidmessage{
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 46px;
+  color: red;
+}
+.button.black_toGame {
+  background: #111111;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@media only screen and (max-width: 768px) {
+
+  .square {
+    width: 17.5vw;
+    height: 15vh;
+  }
+  
+  /* Source for genreCards CSS grid-solution: https://stackoverflow.com/questions/69344645/how-to-create-a-css-grid-with-5-blocks-2-on-row-1-3-on-row-2 */
+  .card {
+    grid-column-end: span 2;
+  }
+  .card:nth-child(1) {
+    grid-column-start: 2;
+  }
+  .card:nth-last-child(-n+3) {
+    grid-column-start: 1;
+  }
+  .card:nth-last-child(-n+2) {
+    grid-column-start: 3
+  }
+  .card:nth-last-child(-n+1) {
+    grid-column-start: 5
+  } 
+  }
+  @media only screen and (max-width: 576px) {
+    .gameContainer{
+      /* For displaying the game cards and resultsboard alongside each other */
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    
+    /* Left half of screen */
+    .leftSide{
+      height: 60vh;
+      width: 100vw;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      place-self: center;
+    }
+    
+    .cardGrid{
+      height: 55vh;
+      width: 100vw;
+      align-items: bottom;
+      align-content: center;
+      place-self: center;
+    
+      /* Formatting for internal grid (i.e., the four cards) */
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 5vh 5vh; 
+      justify-content: center;
+    }
+    .square {
+      /* Game card formatting - used for genresView.js as well */
+      display: inline-block;
+      align-items: center;
+      width: 25vw;
+      height: 20vh;
+    
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      font-family: "Ubuntu", arial, serif;
+      font-style: normal;
+      font-weight: 700;
+    
+      font-size: 4vh;  
+      border: 0;
+      cursor: pointer;
+      color: white;
+    }
+    
+    .backButton{
+      align-items: bottom;
+      height: 5vh;
+      display: inline-block;
+      place-self: center;
+    }
+    .button.black {
+      background: #111111;}
+    
+    /* Right half of screen */
+    .rightSide{
+      height: 50vh;
+      width: 100vw;
+      display: grid;
+      justify-content: center;
+      grid-template-rows: 1fr;
+      place-self: center;
+    }
+    
+    .highScoreTable {
+      /* Formatting of results board-area */
+      width: 75vw;
+      height: 50vh;
+      margin-left: 5vw;
+      margin-right: 5vw;
+      background: linear-gradient(
+        156.66deg,
+        #683d88 0%,
+        rgba(94, 119, 251, 0.5) 99.16%
+      );
+      place-self: center;
+    }
+  } 
+  @media only screen and (max-width: 576px) {
+    .flex-row-homepage {
+      grid-template-columns: none;
+      grid-template-rows: 1fr 1fr;
+    }
+  
+    .App-name {
+      font-size: 10vw;
+    }
+  
+    .description-font-30px{
+      font-size: 5vw;
+    }
+  
+    .button.playAsGuest {
+      width: 60vw;
+      height: 10vw;
+      font-size: 5vw;
+    }
+  }
+
+/* Results page */
+.resultsContainer{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.leftSideResults{
+  height: 60vh;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto auto auto;
+  place-self: center;
+}
+.resultsTitle{
+  width: 100%;
+  display: flex;
+  align-items: end;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5vw;
+  line-height: 115px;
+
+  background: linear-gradient(
+    90.12deg,
+    #683b84 0.11%,
+    #5c79fd 51.22%,
+    #8e58d6 99.91%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.resultsMessage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3vw; 
+
+  color: #494949;
+}
+.pointsGridText{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.answerText{
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3vh; 
+
+  color: #494949;
+}
+.pointsGridScore{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5vh 5vh; 
+}
+.scoreResult{
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3vh; 
+
+  color: #494949;
+}
+.rankingResult{
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3vh; 
+
+  color: #494949;
+
+}
+.resultButtons{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.rightSideResults{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto;
+  place-self: center;
+}
+
+.pointsGrid{
+
+}
+
+.gradientText {
+  background: linear-gradient(
+    90.12deg,
+    #683b84 0.11%,
+    #5c79fd 51.22%,
+    #8e58d6 99.91%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.leftResult {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
